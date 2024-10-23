@@ -1,6 +1,7 @@
 const express = require('express');
 const { resolve } = require('path');
 let cors = require('cors');
+const { log } = require('console');
 
 const app = express();
 app.use(cors());
@@ -26,7 +27,8 @@ app.get('/cart/add', (req, res) => {
   let name = req.query.name;
 
   let result = addTocart(cart, productId, price, quantity, name);
-  console.log(result);
+   let d =cart.pop()
+   console.log(" d = ", d)
   res.json({ cartItems: result });
 });
 
